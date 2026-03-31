@@ -44,3 +44,37 @@ ul {
     padding: 20px 40px;
     border-radius: 12px;
 }
+/* Button Styling */
+button {
+    background-color: #9d4edd; /* Neon Purple */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #9d4edd;
+    box-shadow: 0 0 15px #9d4edd;
+}
+/* Light Mode Override Class (JavaScript will trigger this) */
+body.light-mode {
+    background-color: #f8f9fa;
+    color: #333333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode a {
+    color: #9d4edd; /* Matches your new Cyberpunk buttons! */
+}
+
+body.light-mode ul {
+    background-color: #e9ecef;
+}
