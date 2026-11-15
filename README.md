@@ -1,19 +1,54 @@
 # Foundation: Static Web Portfolio
 
-**Live Demo:** [samuelankomahene.github.io/hello-world](https://samuelankomahene.github.io/hello-world/)
+> **DE:** Statisches Web-Portfolio mit HTML, CSS & JS. Live gehostet auf GitHub Pages.
+>
+> **EN:** Static web portfolio built with HTML, CSS, and JS. Live on GitHub Pages.
 
-## Architecture Overview
-This repository contains the foundational HTML, CSS, and JavaScript artifacts developed during the initial phase of my IT infrastructure training. It serves as a static presentation layer, demonstrating fundamental web technologies before advancing to dynamic Python/Flask routing and database integration.
+**Live Production Demo:** [https://samuelankomahene.github.io/hello-world/](https://samuelankomahene.github.io/hello-world/)
+
+---
+
+## 1. Architecture Overview
+
+This repository contains the foundational static web presentation layer developed during Month 1 of the FISI systems integration curriculum. It demonstrates semantic HTML5 structure, responsive CSS3 theming, and client-side JavaScript DOM manipulation.
 
 ### Technology Stack
-- **Structure:** Semantic HTML5
-- **Styling:** CSS3 (Custom Theme Variables)
-- **Logic:** Vanilla JavaScript (ES6)
+* **Structure:** Semantic HTML5 (`index.html` & `index-en.html`)
+* **Styling:** CSS3 Custom Properties & Responsive Layout (`style.css`)
+* **Client Logic:** Vanilla JavaScript ES6+ (`script.js`)
+* **Hosting:** GitHub Pages (Static CI/CD Deployment)
 
-## Core Capabilities
-- **Bilingual Routing:** Implements a static multi-page architecture to serve content in both German (`index.html`) and English (`index-en.html`), managed via strict language attribute routing.
-- **Dynamic DOM Manipulation:** Utilizes JavaScript event listeners to execute formal alert dialogs and dynamically inject randomized array data into the DOM (Table Tennis Tips).
-- **State Management:** Features a Theme Switcher that toggles a `light-mode` CSS class on the `<body>` element, providing an immediate visual state change.
+---
 
-## Deployment Context
-This static repository is deployed and hosted via GitHub Pages.
+## 2. Client-Side Architecture & DOM Mapping
+
+| Component / Selector | File | Technical Mechanism |
+| :--- | :--- | :--- |
+| `document.documentElement.lang` | `script.js` | Detects active page language (`de` or `en`) for localization |
+| `#alertBtn` (`click`) | `script.js` | Triggers a localized modal greeting dialog (`Sie` / `en`) |
+| `#themeBtn` (`click`) | `script.js` | Toggles `.light-mode` on `document.body` and updates label |
+| `#hobbyBtn` (`click`) | `script.js` | Injects a random localized string (`tipsDE` / `tipsEN`) into `#hobbyText` |
+
+---
+
+## 3. Local Development Setup
+
+Clone the repository and serve the static files over a local HTTP server:
+
+```bash
+git clone https://github.com/samuelankomahene/hello-world.git
+cd hello-world
+python3 -m http.server 8080
+```
+
+Open `http://localhost:8080` (`DE`) or `http://localhost:8080/index-en.html` (`EN`) in a browser.
+
+---
+
+## 4. Infrastructure Progression
+
+This static portfolio is the first stage of a four-repository systems integration architecture:
+1. **Static Web Layer:** [`hello-world`](https://github.com/samuelankomahene/hello-world)
+2. **WSGI Routing Proof-of-Concept:** [`webserver`](https://github.com/samuelankomahene/webserver)
+3. **Decoupled REST Client:** [`kontakte-gui`](https://github.com/samuelankomahene/kontakte-gui)
+4. **Production Backend & SQLite API:** [`kontakte-api`](https://github.com/samuelankomahene/kontakte-api)
